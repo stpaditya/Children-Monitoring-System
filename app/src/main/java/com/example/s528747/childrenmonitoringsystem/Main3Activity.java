@@ -62,7 +62,7 @@ public class Main3Activity extends AppCompatActivity {
             if (matcher.matches()){
                 Toast.makeText(getApplicationContext(),"True",Toast.LENGTH_SHORT).show();
 
-                Intent in = new Intent(this,MainActivity.class);
+                Intent in = new Intent(this,LoginPage.class);
                 startActivity(in);
             }
             else {

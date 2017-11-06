@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.s528747.childrenmonitoringsystem.MainActivity">
+    tools:context="com.example.s528747.childrenmonitoringsystem.LoginPage">
 
     <TextView android:text = "Login" android:layout_width="wrap_content"
         android:layout_height = "wrap_content"
@@ -22,31 +22,31 @@
         android:layout_marginTop="8dp"
         app:layout_constraintVertical_bias="0.029999971" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Track child "
-        android:textColor="#ff7aff24"
-        android:textSize="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16000003" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/textview"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="Track child "-->
+        <!--android:textColor="#ff7aff24"-->
+        <!--android:textSize="35dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.503"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.16000003" />-->
 
     <EditText
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
+        android:layout_width = "323dp"
+        android:layout_height = "43dp"
         android:id = "@+id/editText"
-        android:hint = "Enter Name"
+        android:hint = "Enter Username"
         android:focusable = "true"
         android:textColorHighlight = "#ff7eff15"
         android:textColorHint = "#ffff25e6"
@@ -63,8 +63,8 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintHorizontal_bias="0.07" />
+        app:layout_constraintVertical_bias="0.199"
+        app:layout_constraintHorizontal_bias="0.177" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -75,8 +75,8 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="323dp"
+        android:layout_height="47dp"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editText2"
@@ -95,8 +95,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.431"
-        app:layout_constraintHorizontal_bias="0.07" />
+        app:layout_constraintVertical_bias="0.337"
+        app:layout_constraintHorizontal_bias="0.177" />
 
 
     <Button
