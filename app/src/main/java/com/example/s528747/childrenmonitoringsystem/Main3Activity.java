@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,6 +65,22 @@ public class Main3Activity extends AppCompatActivity {
 
 
             if (matcher.matches()){
+                BackendlessUser user = new BackendlessUser();
+                user.setPassword(password);
+                user.setEmail(email);
+                user.setProperty("name", username);
+                Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
+                    @Override
+                    public void handleResponse(BackendlessUser response) {
+
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+
+                    }
+                });
+
                 Toast.makeText(getApplicationContext(),"True",Toast.LENGTH_SHORT).show();
 
                 Intent in = new Intent(this,LoginPage.class);
@@ -71,6 +92,7 @@ public class Main3Activity extends AppCompatActivity {
 
 
         }
+
 
     }
 
