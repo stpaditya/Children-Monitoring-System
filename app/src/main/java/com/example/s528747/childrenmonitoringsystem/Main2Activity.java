@@ -43,6 +43,12 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(ne);
     }
 
+    public void delete(View v){
+        Intent ne= new Intent(this,Main2Activity.class);
+
+        startActivity(ne);
+    }
+
     public void settings(View v){
         Intent ne= new Intent(this,Settings.class);
 

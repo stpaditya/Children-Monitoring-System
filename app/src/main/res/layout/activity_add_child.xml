@@ -6,28 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.s528747.childrenmonitoringsystem.Addchild">
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="239dp"
-        android:layout_height="51dp"
-        android:text="TextView"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintVertical_bias="0.018" />
-
     <EditText
         android:id="@+id/ChildNumber"
-        android:layout_width="256dp"
+        android:layout_width="288dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
@@ -37,15 +18,14 @@
         android:hint="Child Phone Number"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.217" />
 
     <EditText
         android:id="@+id/child_name"
-        android:layout_width="251dp"
+        android:layout_width="286dp"
         android:layout_height="52dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
@@ -55,29 +35,25 @@
         android:hint="Child Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285"
-        tools:layout_editor_absoluteX="61dp" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="261dp"
-        android:layout_height="203dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="307dp"
+        android:layout_height="226dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintVertical_bias="0.971"
-        tools:layout_editor_absoluteY="292dp"
-        tools:layout_editor_absoluteX="115dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724" />
 
     <TextView
         android:id="@+id/textView8"
@@ -89,9 +65,26 @@
         android:layout_marginTop="8dp"
         android:text="Date of Birth"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.36" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="add"
+        android:text="Add Child"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.941" />
 </android.support.constraint.ConstraintLayout>
