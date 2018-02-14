@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ public class Main2Activity extends AppCompatActivity {
     String c="tarun";
     int x=0;
     String str;
+    String str1;
     ArrayList<String> event = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +28,17 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Intent in = getIntent();
         str= in.getStringExtra("Name");
+        str1= in.getStringExtra("add");
         TextView ed=(TextView) findViewById(R.id.textView3);
         ed.setText(str);
-        event.add("john");
-        event.add("tarun");
+        if(str1!=null) {
+            System.out.println("Value is"+str1);
+            event.add(str1);
+            final ListView lv = (ListView) findViewById(R.id.listView);
+            final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
+            lv.setAdapter(server);
+
+        }
         final ListView lv = (ListView) findViewById(R.id.listView);
         final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
         lv.setAdapter(server);
