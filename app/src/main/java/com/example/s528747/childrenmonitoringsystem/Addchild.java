@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Addchild extends AppCompatActivity {
-    private Button x;
+    private Button addbtn;
     private EditText childname;
 
     @Override
@@ -20,14 +20,15 @@ public class Addchild extends AppCompatActivity {
 
         childname = (EditText) findViewById(R.id.child_name);
 
-        x = (Button) findViewById(R.id.button4);
-        x.setOnClickListener(new View.OnClickListener() {
+        addbtn = (Button) findViewById(R.id.addchild_acbtn);
+
+        addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String temp = childname.getText().toString();
                 System.out.println("child name"+temp);
                 Intent y= new Intent(getApplicationContext(),Main2Activity.class);
-                y.putExtra("add",temp);
+                y.putExtra("addch",temp);
                 startActivity(y);
             }
         });

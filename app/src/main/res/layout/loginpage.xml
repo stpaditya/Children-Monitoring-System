@@ -46,6 +46,7 @@
         android:layout_width = "323dp"
         android:layout_height = "43dp"
         android:id = "@+id/editText"
+        android:text= "stp.aditya@gmail.com"
         android:hint = "Enter Username"
         android:focusable = "true"
         android:textColorHighlight = "#ff7eff15"
@@ -70,7 +71,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
@@ -78,6 +78,7 @@
         android:layout_width="323dp"
         android:layout_height="47dp"
         android:inputType="textPassword"
+        android:text= "password-1"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_below="@+id/editText"

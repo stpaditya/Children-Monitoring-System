@@ -10,38 +10,63 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
-    ListView lv;
-    String c="tarun";
-    int x=0;
+    String c = "tarun";
     String str;
     String str1;
-    ArrayList<String> event = new ArrayList<String>();
+    //ArrayList<String> event = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        final ListView lv = (ListView) findViewById(R.id.listView);
+        final TextView tv = (TextView) findViewById(R.id.textView3);
+
+        String[] children = new String[] {"Aditya","Kamal"};
+        final List<String> children_list = new ArrayList<String>(Arrays.asList(children));
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.listview, R.id.textView6, children_list);
+
+        lv.setAdapter(arrayAdapter);
+        System.out.println(str1);
+
+        tv.setText(str);
         Intent in = getIntent();
         str= in.getStringExtra("Name");
-        str1= in.getStringExtra("add");
-        TextView ed=(TextView) findViewById(R.id.textView3);
-        ed.setText(str);
-        if(str1!=null) {
-            System.out.println("Value is"+str1);
-            event.add(str1);
-            final ListView lv = (ListView) findViewById(R.id.listView);
-            final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
-            lv.setAdapter(server);
+        str1= in.getStringExtra("addch");
+        children_list.add(str1);
+        arrayAdapter.notifyDataSetChanged();
 
-        }
-        final ListView lv = (ListView) findViewById(R.id.listView);
-        final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
-        lv.setAdapter(server);
+
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Add new Items to List
+//                children_list.add(str1);
+//                arrayAdapter.notifyDataSetChanged();
+//            }
+//        });
+
+
+
+//        tv.setText(str);
+//        System.out.println("Value is"+str1);
+//        children_list.add(str1);
+//        arrayAdapter.notifyDataSetChanged();
+
+
+//        final ListView lv = (ListView) findViewById(R.id.listView);
+//        final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
+//        lv.setAdapter(server);
 
 
 
@@ -72,5 +97,13 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(ne);
 
     }
+
+//    public void addChildr(View v) {
+//        Intent in = getIntent();
+//        str= in.getStringExtra("Name");
+//        str1= in.getStringExtra("addch");
+//        children_list.add(str1);
+//        arrayAdapter.notifyDataSetChanged();
+//    }
 
 }
