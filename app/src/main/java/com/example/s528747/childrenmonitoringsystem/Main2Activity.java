@@ -1,73 +1,109 @@
 package com.example.s528747.childrenmonitoringsystem;
 
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main2Activity extends AppCompatActivity {
     String c = "tarun";
     String str;
     String str1;
-    //ArrayList<String> event = new ArrayList<String>();
+    ArrayList<Children> listOfChildren =new ArrayList<Children>();
+    public HashMap childDetails = new HashMap<>();
+    private EditText childName, childPhone;
+    //    private CalendarView dob;
+    private String date;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        final ListView lv = (ListView) findViewById(R.id.listView);
-        final TextView tv = (TextView) findViewById(R.id.textView3);
-
-        String[] children = new String[] {"Aditya","Kamal"};
-        final List<String> children_list = new ArrayList<String>(Arrays.asList(children));
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.listview, R.id.textView6, children_list);
-
-        lv.setAdapter(arrayAdapter);
-        System.out.println(str1);
-
-        tv.setText(str);
-        Intent in = getIntent();
-        str= in.getStringExtra("Name");
-        str1= in.getStringExtra("addch");
-        children_list.add(str1);
-        arrayAdapter.notifyDataSetChanged();
 
 
-//        btn.setOnClickListener(new View.OnClickListener() {
+//        dob = (CalendarView)findViewById(R.id.calendarView);
+//        dob.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 //            @Override
-//            public void onClick(View v) {
-//                // Add new Items to List
-//                children_list.add(str1);
-//                arrayAdapter.notifyDataSetChanged();
+//            public void onSelectedDayChange(CalendarView view, int year, int month,
+//                                            int dayOfMonth) {
+//                // TODO Auto-generated method stub
+//                date = dayOfMonth +"/" + (month+1) + "/" + year;
+//
 //            }
 //        });
 
+//        ListView lv = (ListView) findViewById(R.id.listView);
+//        TextView tv = (TextView) findViewById(R.id.textView3);
+//
+//        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+//        lv.setAdapter(ad);
+//
+//        String[] children = new String[] {};
+//        final List<String> children_list = new ArrayList<String>(Arrays.asList(children));
+//        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.listview, R.id.textView6, children_list);
 
 
-//        tv.setText(str);
-//        System.out.println("Value is"+str1);
-//        children_list.add(str1);
-//        arrayAdapter.notifyDataSetChanged();
+//        lv.setAdapter(arrayAdapter);
+//        System.out.println(str1);
+//
+        Intent in = getIntent();
+        date = in.getStringExtra("date");
 
+        ListView list = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+        list.setAdapter(ad);
 
-//        final ListView lv = (ListView) findViewById(R.id.listView);
-//        final ArrayAdapter<String> server = new ArrayAdapter(this,R.layout.listview, R.id.textView6, event);
-//        lv.setAdapter(server);
+        list.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
+                listOfChildren.remove(i);
+                ListView list = (ListView) findViewById(R.id.listView);
+                ArrayAdapter<Children> ad = new ChildAdapter(getApplicationContext(), R.layout.listview, R.id.textView6, listOfChildren);
+                list.setAdapter(ad);
+                ad.notifyDataSetChanged();
+                Toast.makeText(getApplicationContext(),"Deleted the row!",Toast.LENGTH_SHORT).show();
+            }
+        });
+//
+//
+//        if (str1 != null) {
+//            System.out.println("Value is" + str1);
+//            children_list.add(str1);
+//            System.out.println(children_list);
+//            arrayAdapter.notifyDataSetChanged();
+//        }
 
 
     }
@@ -98,12 +134,32 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-//    public void addChildr(View v) {
-//        Intent in = getIntent();
-//        str= in.getStringExtra("Name");
-//        str1= in.getStringExtra("addch");
-//        children_list.add(str1);
-//        arrayAdapter.notifyDataSetChanged();
-//    }
+    public void addChildren(View v){
+        childName = (EditText) findViewById(R.id.child_name);
+        childPhone = (EditText) findViewById(R.id.child_number);
+        childDetails.put("name", childName.getText().toString());
+        childDetails.put("phoneNumber", childPhone.getText().toString());
+        childDetails.put("dob",date);
+        Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
+            public void handleResponse( Map response )
+            {
+                System.out.println(response);
+                // new Contact instance has been saved
+
+            }
+
+            public void handleFault( BackendlessFault fault )
+            {
+                System.out.println(fault);
+
+                // an error has occurred, the error code can be retrieved with fault.getCode()
+            }
+        });
+        listOfChildren.add(new Children(childName.getText().toString(), childPhone.getText().toString(), date));
+        ListView list = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+        list.setAdapter(ad);
+
+    }
 
 }
