@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class Addchild extends AppCompatActivity {
     private Button addbtn;
     private EditText childname;
+    private EditText childPhone;
 
     private DatePickerDialog.OnDateSetListener onDateSetListener;
     private String dateValue;
@@ -31,19 +33,6 @@ public class Addchild extends AppCompatActivity {
         childname = (EditText) findViewById(R.id.child_name);
 //
         addbtn = (Button) findViewById(R.id.addchild_acbtn);
-//
-//
-       // ((Main2Activity)Addchild).addChildren();
-        addbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String temp = childname.getText().toString();
-                System.out.println("child name"+temp);
-                Intent y= new Intent(getApplicationContext(),Main2Activity.class);
-                y.putExtra("addch",temp);
-                startActivity(y);
-            }
-        });
 
         dateP = (Button) findViewById(R.id.datepick);
         dateP.setOnClickListener(new View.OnClickListener() {
@@ -69,8 +58,36 @@ public class Addchild extends AppCompatActivity {
                 dateValue = i1+"/"+i2+"/"+i;
             }
         };
+//
+//
+        //
+        addbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        Intent y2 = new Intent(getApplicationContext(),Main2Activity.class);
-        y2.putExtra("date",dateValue);
+                String temp = childname.getText().toString();
+//                System.out.println("child name"+temp);
+                Intent y = new Intent(getApplicationContext(),Main2Activity.class);
+                y.putExtra("name",temp);
+                y.putExtra("phoneNumber",childPhone.getText().toString());
+                y.putExtra("date",dateValue);
+
+                startActivity(y);
+
+                Main2Activity mainAct = new Main2Activity();
+
+                //Calling function from another class and storing string return value in string b.
+                mainAct.addChildren(view);
+
+                // Printing b value on activity screen using toast message.
+//                Toast.makeText(Addchild.this, mainAct, Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+
+
+//        Intent y2 = new Intent(getApplicationContext(),Main2Activity.class);
+//        y2.putExtra("date",dateValue);
     }
 }

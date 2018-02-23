@@ -40,7 +40,7 @@ public class LoginPage extends AppCompatActivity {
         }
         else{
             System.out.println(str+" "+str1);
-final   Intent in=new Intent(this,Main2Activity.class);
+            final   Intent in=new Intent(this,Main2Activity.class);
             in.putExtra("Name",str);
             Backendless.UserService.login(str, str1, new AsyncCallback<BackendlessUser>() {
                 @Override
@@ -59,35 +59,35 @@ final   Intent in=new Intent(this,Main2Activity.class);
                 }
             });
 
-         }
+        }
     }
- public void forgotpassword(View v){
-     EditText et=(EditText) findViewById(R.id.editText);
-     String str=et.getText().toString();
-     if(str.length()<=0)
-     {
-         Toast.makeText(getApplicationContext(),"Enter Email ", Toast.LENGTH_SHORT).show();
+    public void forgotpassword(View v){
+        EditText et=(EditText) findViewById(R.id.editText);
+        String str=et.getText().toString();
+        if(str.length()<=0)
+        {
+            Toast.makeText(getApplicationContext(),"Enter Email ", Toast.LENGTH_SHORT).show();
 
-     }
+        }
 
         else {
 
-         Backendless.UserService.restorePassword(str, new AsyncCallback<Void>() {
-             @Override
-             public void handleResponse(Void response) {
-                 System.out.println("sent "+response);
-                 Toast.makeText(getApplicationContext(),"Email has been sent ", Toast.LENGTH_SHORT).show();
-             }
+            Backendless.UserService.restorePassword(str, new AsyncCallback<Void>() {
+                @Override
+                public void handleResponse(Void response) {
+                    System.out.println("sent "+response);
+                    Toast.makeText(getApplicationContext(),"Email has been sent ", Toast.LENGTH_SHORT).show();
+                }
 
-             @Override
-             public void handleFault(BackendlessFault fault) {
-                 System.out.println("fault "+fault);
-             }
-         });
+                @Override
+                public void handleFault(BackendlessFault fault) {
+                    System.out.println("fault "+fault);
+                }
+            });
 
-     }
+        }
 
- }
+    }
     public void signup(View V){
 
         Intent in = new Intent(this,Main3Activity.class);

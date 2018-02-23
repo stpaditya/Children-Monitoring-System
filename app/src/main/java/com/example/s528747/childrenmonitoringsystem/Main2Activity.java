@@ -40,7 +40,7 @@ public class Main2Activity extends AppCompatActivity {
     public HashMap childDetails = new HashMap<>();
     private EditText childName, childPhone;
     //    private CalendarView dob;
-    private String date;
+    private String date, name, phoneNumber;
 
 
 
@@ -135,10 +135,17 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void addChildren(View v){
+
         childName = (EditText) findViewById(R.id.child_name);
         childPhone = (EditText) findViewById(R.id.child_number);
-        childDetails.put("name", childName.getText().toString());
-        childDetails.put("phoneNumber", childPhone.getText().toString());
+        Intent in = getIntent();
+        date = in.getStringExtra("date");
+        name = in.getStringExtra("name");
+        phoneNumber = in.getStringExtra("phoneNumber");
+
+
+        childDetails.put("name", name);
+        childDetails.put("phoneNumber", phoneNumber);
         childDetails.put("dob",date);
         Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
             public void handleResponse( Map response )
@@ -155,7 +162,7 @@ public class Main2Activity extends AppCompatActivity {
                 // an error has occurred, the error code can be retrieved with fault.getCode()
             }
         });
-        listOfChildren.add(new Children(childName.getText().toString(), childPhone.getText().toString(), date));
+        listOfChildren.add(new Children(name, phoneNumber, date));
         ListView list = (ListView) findViewById(R.id.listView);
         ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
         list.setAdapter(ad);
