@@ -25,9 +25,13 @@ public class ChildAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View v = super.getView(position, convertView, parent);
-        TextView tv1 = (TextView) v.findViewById(R.id.textView4);
+        TextView tv1 = (TextView) v.findViewById(R.id.childrentv);
+//        TextView tv2 = (TextView) v.findViewById(R.id.textView4);
+//        TextView tv3 = (TextView) v.findViewById(R.id.textView4);
         Children even = (Children) getItem(position);
         tv1.setText(even.getChildName());
+//        tv2.setText(even.getChildPhone());
+//        tv3.setText(even.getDate());
         return v;
     }
 }

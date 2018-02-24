@@ -10,6 +10,6 @@
         android:layout_height="30dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="TextView" />
+        android:text="Children" />
 
 </LinearLayout>

@@ -11,7 +11,7 @@ public class Children {
     private String childPhone;
     private String date;
 
-    public Children(String childName, String childPhone, String dob){
+    public Children(String childName, String childPhone, String date){
         this.childName = childName;
         this.childPhone = childPhone;
         this.date = date;

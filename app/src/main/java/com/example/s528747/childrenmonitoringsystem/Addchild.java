@@ -31,6 +31,8 @@ public class Addchild extends AppCompatActivity {
 
 
         childname = (EditText) findViewById(R.id.child_name);
+        childPhone = (EditText) findViewById(R.id.child_number);
+
 //
         addbtn = (Button) findViewById(R.id.addchild_acbtn);
 
@@ -58,6 +60,8 @@ public class Addchild extends AppCompatActivity {
                 dateValue = i1+"/"+i2+"/"+i;
             }
         };
+
+        System.out.println("OnDatesetLister aindi " + dateValue);
 //
 //
         //
@@ -66,18 +70,30 @@ public class Addchild extends AppCompatActivity {
             public void onClick(View view) {
 
                 String temp = childname.getText().toString();
+                String temp2 = childPhone.getText().toString();
+//
+//
 //                System.out.println("child name"+temp);
+                System.out.println("addbtn lo " + temp2 + " ---- " + temp + " date anta " + dateValue);
                 Intent y = new Intent(getApplicationContext(),Main2Activity.class);
                 y.putExtra("name",temp);
-                y.putExtra("phoneNumber",childPhone.getText().toString());
+                y.putExtra("phoneNumber",temp2);
                 y.putExtra("date",dateValue);
 
                 startActivity(y);
 
-                Main2Activity mainAct = new Main2Activity();
+                System.out.println("Inka ikkade undi");
 
-                //Calling function from another class and storing string return value in string b.
-                mainAct.addChildren(view);
+                System.out.println("intenttt " + y);
+
+//
+//                Intent ini = new Intent(this, Main2Activity.class);
+//                startActivity(ini);
+
+//                Main2Activity mainAct = new Main2Activity();
+//
+//                //Calling function from another class and storing string return value in string b.
+//                mainAct.addChildren();
 
                 // Printing b value on activity screen using toast message.
 //                Toast.makeText(Addchild.this, mainAct, Toast.LENGTH_LONG).show();

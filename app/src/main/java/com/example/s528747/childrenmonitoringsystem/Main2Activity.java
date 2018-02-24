@@ -36,12 +36,12 @@ public class Main2Activity extends AppCompatActivity {
     String c = "tarun";
     String str;
     String str1;
-    ArrayList<Children> listOfChildren =new ArrayList<Children>();
+    ArrayList<Children> listOfChildren = new ArrayList<>();
     public HashMap childDetails = new HashMap<>();
     private EditText childName, childPhone;
     //    private CalendarView dob;
     private String date, name, phoneNumber;
-
+    Intent in = getIntent();
 
 
 
@@ -49,6 +49,10 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        ListView list = (ListView) findViewById(R.id.listView);
+        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+        list.setAdapter(ad);
 
 
 
@@ -77,25 +81,76 @@ public class Main2Activity extends AppCompatActivity {
 //        lv.setAdapter(arrayAdapter);
 //        System.out.println(str1);
 //
-        Intent in = getIntent();
-        date = in.getStringExtra("date");
+//        Intent in = getIntent();
+//        date = in.getStringExtra("date");
 
-        ListView list = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
-        list.setAdapter(ad);
+//        Backendless.Persistence.of( "NewChild" ).find( new AsyncCallback<List<Map>>(){
+//            @Override
+//            public void handleResponse( List<Map> foundContacts )
+//            {
+//                // every loaded object from the "Contact" table is now an individual java.util.Map
+//            }
+//            @Override
+//            public void handleFault( BackendlessFault fault )
+//            {
+//                // an error has occurred, the error code can be retrieved with fault.getCode()
+//            }
+//        });
 
-        list.setOnItemClickListener(new ListView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+//        ListView list = (ListView) findViewById(R.id.listView);
+//        list.setOnItemClickListener(new ListView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+//
+////                listOfChildren.remove(i);
+//                ListView list = (ListView) findViewById(R.id.listView);
+//                ArrayAdapter<Children> ad = new ChildAdapter(getApplicationContext(), R.layout.children, R.id.childrentv, listOfChildren);
+//                list.setAdapter(ad);
+//                ad.notifyDataSetChanged();
+//                Toast.makeText(getApplicationContext(),"Deleted the row!",Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-                listOfChildren.remove(i);
-                ListView list = (ListView) findViewById(R.id.listView);
-                ArrayAdapter<Children> ad = new ChildAdapter(getApplicationContext(), R.layout.listview, R.id.textView6, listOfChildren);
-                list.setAdapter(ad);
-                ad.notifyDataSetChanged();
-                Toast.makeText(getApplicationContext(),"Deleted the row!",Toast.LENGTH_SHORT).show();
-            }
-        });
+//        childName = (EditText) findViewById(R.id.child_name);
+//        childPhone = (EditText) findViewById(R.id.child_number);
+//        Intent in = getIntent();
+//        date = in.getStringExtra("date");
+//        name = in.getStringExtra("name");
+//        phoneNumber = in.getStringExtra("phoneNumber");
+//
+//
+//        childDetails.put("name", name);
+//        childDetails.put("phoneNumber", phoneNumber);
+//        childDetails.put("dob",date);
+//        System.out.println("Child Details anta " + childDetails);
+//        Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
+//            public void handleResponse( Map response )
+//            {
+//                System.out.println(response);
+//                // new Contact instance has been saved
+//
+//            }
+//
+//            public void handleFault( BackendlessFault fault )
+//            {
+//                System.out.println(fault);
+//
+//                // an error has occurred, the error code can be retrieved with fault.getCode()
+//            }
+//        });
+//        listOfChildren.add(new Children(name, phoneNumber, date));
+//        System.out.println("sadsafdsafsd list of children " + listOfChildren.toString());
+//
+//        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.children, R.id.childrentv, listOfChildren);
+//        list.setAdapter(ad);
+//        ad.notifyDataSetChanged();
+
+//        ListView list = (ListView) findViewById(R.id.listView);
+//        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.children, R.id.childrentv, listOfChildren);
+//        list.setAdapter(ad);
+//        ad.notifyDataSetChanged();
+
+
 //
 //
 //        if (str1 != null) {
@@ -136,17 +191,18 @@ public class Main2Activity extends AppCompatActivity {
 
     public void addChildren(View v){
 
-        childName = (EditText) findViewById(R.id.child_name);
-        childPhone = (EditText) findViewById(R.id.child_number);
-        Intent in = getIntent();
-        date = in.getStringExtra("date");
+//        childName = (EditText) findViewById(R.id.child_name);
+//        childPhone = (EditText) findViewById(R.id.child_number);
+
         name = in.getStringExtra("name");
         phoneNumber = in.getStringExtra("phoneNumber");
+        date = in.getStringExtra("date");
 
 
         childDetails.put("name", name);
         childDetails.put("phoneNumber", phoneNumber);
         childDetails.put("dob",date);
+        System.out.println("Child Details anta " + childDetails);
         Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
             public void handleResponse( Map response )
             {
@@ -166,6 +222,12 @@ public class Main2Activity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.listView);
         ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
         list.setAdapter(ad);
+
+
+    }
+
+    public void hehe(View v) {
+        System.out.println("LOLLllllllll ************** ");
 
     }
 
