@@ -41,7 +41,7 @@ public class Main2Activity extends AppCompatActivity {
     private EditText childName, childPhone;
     //    private CalendarView dob;
     private String date, name, phoneNumber;
-    Intent in = getIntent();
+
 
 
 
@@ -50,11 +50,57 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        //   ListView list = (ListView) findViewById(R.id.listView);
+        //   ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+        //   list.setAdapter(ad);
+
+
+        TextView tv = (TextView) findViewById(R.id.textView3);
+        tv.setText("Welcome, Aditya");
+
+        Intent in = getIntent();
+        name = in.getStringExtra("name");
+        phoneNumber = in.getStringExtra("phoneNumber");
+        date = in.getStringExtra("date");
+
+
+        childDetails.put("name", name);
+        childDetails.put("phoneNumber", phoneNumber);
+        childDetails.put("dob",date);
+        System.out.println("Child Details anta " + childDetails);
+        Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
+            public void handleResponse( Map response )
+            {
+                System.out.println(response);
+                // new Contact instance has been saved
+
+            }
+
+            public void handleFault( BackendlessFault fault )
+            {
+                System.out.println(fault);
+
+                // an error has occurred, the error code can be retrieved with fault.getCode()
+            }
+        });
+        listOfChildren.add(new Children(name, phoneNumber, date));
         ListView list = (ListView) findViewById(R.id.listView);
         ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
         list.setAdapter(ad);
 
 
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+
+                //ListEntry entry = (ListEntry) adapterView.getAdapter().getItem(i);
+                Intent ne= new Intent(Main2Activity.this, ChildSelect.class);
+                ne.putExtra("username","Parent");
+                ne.putExtra("child","Child Name");
+                startActivity(ne);
+
+            }
+        });
 
 //        dob = (CalendarView)findViewById(R.id.calendarView);
 //        dob.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -162,6 +208,7 @@ public class Main2Activity extends AppCompatActivity {
 
 
     }
+
     public void add(View v){
         Intent ne= new Intent(this,Addchild.class);
 
@@ -180,12 +227,14 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(ne);
     }
 
-    public void click(View v)
+    public void childPage(View v)
     {
         Intent ne= new Intent(this,ChildSelect.class);
         ne.putExtra("username",str);
         ne.putExtra("child",c);
         startActivity(ne);
+
+
 
     }
 
@@ -194,34 +243,38 @@ public class Main2Activity extends AppCompatActivity {
 //        childName = (EditText) findViewById(R.id.child_name);
 //        childPhone = (EditText) findViewById(R.id.child_number);
 
-        name = in.getStringExtra("name");
-        phoneNumber = in.getStringExtra("phoneNumber");
-        date = in.getStringExtra("date");
+        Intent in = getIntent();
+        if (in == null) {
+            name = in.getStringExtra("name");
+            phoneNumber = in.getStringExtra("phoneNumber");
+            date = in.getStringExtra("date");
 
 
-        childDetails.put("name", name);
-        childDetails.put("phoneNumber", phoneNumber);
-        childDetails.put("dob",date);
-        System.out.println("Child Details anta " + childDetails);
-        Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
-            public void handleResponse( Map response )
-            {
-                System.out.println(response);
-                // new Contact instance has been saved
+            childDetails.put("name", name);
+            childDetails.put("phoneNumber", phoneNumber);
+            childDetails.put("dob",date);
+            System.out.println("Child Details anta " + childDetails);
+            Backendless.Persistence.of( "NewChild" ).save( childDetails, new AsyncCallback<Map>() {
+                public void handleResponse( Map response )
+                {
+                    System.out.println(response);
+                    // new Contact instance has been saved
 
-            }
+                }
 
-            public void handleFault( BackendlessFault fault )
-            {
-                System.out.println(fault);
+                public void handleFault( BackendlessFault fault )
+                {
+                    System.out.println(fault);
 
-                // an error has occurred, the error code can be retrieved with fault.getCode()
-            }
-        });
-        listOfChildren.add(new Children(name, phoneNumber, date));
-        ListView list = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
-        list.setAdapter(ad);
+                    // an error has occurred, the error code can be retrieved with fault.getCode()
+                }
+            });
+            listOfChildren.add(new Children(name, phoneNumber, date));
+            ListView list = (ListView) findViewById(R.id.listView);
+            ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
+            list.setAdapter(ad);
+        }
+
 
 
     }

@@ -84,8 +84,6 @@ public class Addchild extends AppCompatActivity {
 
                 System.out.println("Inka ikkade undi");
 
-                System.out.println("intenttt " + y);
-
 //
 //                Intent ini = new Intent(this, Main2Activity.class);
 //                startActivity(ini);
@@ -93,7 +91,7 @@ public class Addchild extends AppCompatActivity {
 //                Main2Activity mainAct = new Main2Activity();
 //
 //                //Calling function from another class and storing string return value in string b.
-//                mainAct.addChildren();
+//                mainAct.addChildren(view);
 
                 // Printing b value on activity screen using toast message.
 //                Toast.makeText(Addchild.this, mainAct, Toast.LENGTH_LONG).show();
