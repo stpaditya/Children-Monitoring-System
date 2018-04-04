@@ -13,8 +13,8 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
 public class LoginPage extends AppCompatActivity {
-    public static final String APPLICATION_ID = "E122DCE7-1E5A-FF68-FF17-5A5E6CE84200";
-    public static final String API_KEY = "AC74F97F-7106-942F-FFED-BE52CE6F7A00";
+    public static final String APPLICATION_ID = "3B0E7F39-9A46-5A3F-FF70-34D833BBAA00";
+    public static final String API_KEY = "126D077E-DD6D-69B6-FF6F-61EF37FF5300";
     public static final String SERVER_URL = "https://api.backendless.com";
 
 

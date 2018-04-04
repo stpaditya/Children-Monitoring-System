@@ -18,10 +18,11 @@ import java.util.Calendar;
 public class Addchild extends AppCompatActivity {
     private Button addbtn;
     private EditText childname;
-    private EditText childPhone;
+    private EditText childEmail;
+    private EditText childID;
 
     private DatePickerDialog.OnDateSetListener onDateSetListener;
-    private String dateValue;
+//    private String dateValue;
     Button dateP;
 
     @Override
@@ -31,37 +32,38 @@ public class Addchild extends AppCompatActivity {
 
 
         childname = (EditText) findViewById(R.id.child_name);
-        childPhone = (EditText) findViewById(R.id.child_number);
+        childEmail = (EditText) findViewById(R.id.child_email);
+        childID = (EditText) findViewById(R.id.child_id);
 
 //
         addbtn = (Button) findViewById(R.id.addchild_acbtn);
 
-        dateP = (Button) findViewById(R.id.datepick);
-        dateP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+//        dateP = (Button) findViewById(R.id.datepick);
+//        dateP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Calendar calendar = Calendar.getInstance();
+//                int year = calendar.get(Calendar.YEAR);
+//                int month = calendar.get(Calendar.MONTH);
+//                int day = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//                DatePickerDialog dialog = new DatePickerDialog(Addchild.this,
+//                        android.R.style.Theme_Holo_Dialog_MinWidth, onDateSetListener,
+//                        year, month, day);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//            }
+//        });
+//
+//        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+//                i1 = i1 + 1;
+//                dateValue = i1+"/"+i2+"/"+i;
+//            }
+//        };
 
-                DatePickerDialog dialog = new DatePickerDialog(Addchild.this,
-                        android.R.style.Theme_Holo_Dialog_MinWidth, onDateSetListener,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                i1 = i1 + 1;
-                dateValue = i1+"/"+i2+"/"+i;
-            }
-        };
-
-        System.out.println("OnDatesetLister aindi " + dateValue);
+        //System.out.println("OnDatesetLister aindi " + dateValue);
 //
 //
         //
@@ -70,15 +72,16 @@ public class Addchild extends AppCompatActivity {
             public void onClick(View view) {
 
                 String temp = childname.getText().toString();
-                String temp2 = childPhone.getText().toString();
+                String temp2 = childEmail.getText().toString();
+                String temp3 = childID.getText().toString();
 //
 //
 //                System.out.println("child name"+temp);
-                System.out.println("addbtn lo " + temp2 + " ---- " + temp + " date anta " + dateValue);
+                //System.out.println("addbtn lo " + temp2 + " ---- " + temp + " date anta " + dateValue);
                 Intent y = new Intent(getApplicationContext(),Main2Activity.class);
                 y.putExtra("name",temp);
-                y.putExtra("phoneNumber",temp2);
-                y.putExtra("date",dateValue);
+                y.putExtra("email",temp2);
+                y.putExtra("id",temp3);
 
                 startActivity(y);
 
