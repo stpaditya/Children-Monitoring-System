@@ -3,6 +3,7 @@ package com.example.s528747.childrenmonitoringsystem;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ChildSelect extends AppCompatActivity {
@@ -18,5 +19,10 @@ public class ChildSelect extends AppCompatActivity {
         String child=in.getStringExtra("child");
         ed.setText(user);
         ed1.setText(child);
+    }
+
+    public void childPageBack(View v){
+        Intent ne= new Intent(this,HomePage.class);
+        startActivity(ne);
     }
 }

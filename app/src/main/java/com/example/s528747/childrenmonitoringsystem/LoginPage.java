@@ -40,7 +40,7 @@ public class LoginPage extends AppCompatActivity {
         }
         else{
             System.out.println(str+" "+str1);
-            final   Intent in=new Intent(this,Main2Activity.class);
+            final   Intent in=new Intent(this,HomePage.class);
             in.putExtra("Name",str);
             Backendless.UserService.login(str, str1, new AsyncCallback<BackendlessUser>() {
                 @Override

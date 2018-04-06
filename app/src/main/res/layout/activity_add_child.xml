@@ -6,8 +6,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.s528747.childrenmonitoringsystem.Addchild">
 
+    <Button
+        android:id="@+id/addchild_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="addchildBack"
+        android:text="Cancel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545" />
+
     <EditText
-        android:id="@+id/child_email"
+        android:id="@+id/child_name"
         android:layout_width="255dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
@@ -15,14 +33,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Enter child Email"
-        android:inputType="textEmailAddress"
+        android:hint="Enter child name"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <EditText
         android:id="@+id/child_id"
@@ -43,7 +61,7 @@
         app:layout_constraintVertical_bias="0.235" />
 
     <EditText
-        android:id="@+id/child_name"
+        android:id="@+id/child_email"
         android:layout_width="255dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
@@ -51,14 +69,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Enter child name"
-        android:inputType="textPersonName"
+        android:hint="Enter child Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.37" />
 
     <Button
         android:id="@+id/addchild_acbtn"
@@ -81,23 +99,25 @@
         android:id="@+id/textView10"
         android:layout_width="75dp"
         android:layout_height="40dp"
+        android:layout_marginStart="28dp"
         android:text="Email ID"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/child_email"
-        tools:layout_editor_absoluteX="28dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="75dp"
         android:layout_height="40dp"
+        android:layout_marginStart="28dp"
         android:text="ID"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/child_id"
-        tools:layout_editor_absoluteX="28dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView11"

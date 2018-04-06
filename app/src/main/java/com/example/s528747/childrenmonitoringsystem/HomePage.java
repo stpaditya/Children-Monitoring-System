@@ -1,38 +1,28 @@
 package com.example.s528747.childrenmonitoringsystem;
 
 
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class Main2Activity extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     String c = "tarun";
     String str;
     String str1;
@@ -42,18 +32,40 @@ public class Main2Activity extends AppCompatActivity {
     //    private CalendarView dob;
     private String id, name, email;
 
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent intent;
+            switch (item.getItemId()) {
+//                case R.id.navigation_home:
+//                    return true;
+                case R.id.navigation_child:
+                    intent = new Intent(getApplicationContext(), HomePage.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.navigation_settings:
+                    intent = new Intent(getApplicationContext(), Settings.class);
+                    startActivity(intent);
+                    return true;
+            }
+            return false;
+        }
+    };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_home_page);
 
         //   ListView list = (ListView) findViewById(R.id.listView);
         //   ArrayAdapter<Children> ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
         //   list.setAdapter(ad);
 
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         TextView tv = (TextView) findViewById(R.id.textView3);
         tv.setText("Welcome, Aditya");
@@ -94,7 +106,7 @@ public class Main2Activity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
 
                 //ListEntry entry = (ListEntry) adapterView.getAdapter().getItem(i);
-                Intent ne= new Intent(Main2Activity.this, ChildSelect.class);
+                Intent ne= new Intent(HomePage.this, ChildSelect.class);
                 ne.putExtra("username","Parent");
                 ne.putExtra("child","Child Name");
                 startActivity(ne);
@@ -216,7 +228,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void delete(View v){
-        Intent ne= new Intent(this,Main2Activity.class);
+        Intent ne= new Intent(this,HomePage.class);
 
         startActivity(ne);
     }
@@ -281,7 +293,6 @@ public class Main2Activity extends AppCompatActivity {
 
     public void hehe(View v) {
         System.out.println("LOLLllllllll ************** ");
-
     }
 
 }

@@ -2,18 +2,11 @@ package com.example.s528747.childrenmonitoringsystem;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Calendar;
 
 public class Addchild extends AppCompatActivity {
     private Button addbtn;
@@ -78,7 +71,7 @@ public class Addchild extends AppCompatActivity {
 //
 //                System.out.println("child name"+temp);
                 //System.out.println("addbtn lo " + temp2 + " ---- " + temp + " date anta " + dateValue);
-                Intent y = new Intent(getApplicationContext(),Main2Activity.class);
+                Intent y = new Intent(getApplicationContext(),HomePage.class);
                 y.putExtra("name",temp);
                 y.putExtra("email",temp2);
                 y.putExtra("id",temp3);
@@ -88,10 +81,10 @@ public class Addchild extends AppCompatActivity {
                 System.out.println("Inka ikkade undi");
 
 //
-//                Intent ini = new Intent(this, Main2Activity.class);
+//                Intent ini = new Intent(this, HomePage.class);
 //                startActivity(ini);
 
-//                Main2Activity mainAct = new Main2Activity();
+//                HomePage mainAct = new HomePage();
 //
 //                //Calling function from another class and storing string return value in string b.
 //                mainAct.addChildren(view);
@@ -104,7 +97,12 @@ public class Addchild extends AppCompatActivity {
 
 
 
-//        Intent y2 = new Intent(getApplicationContext(),Main2Activity.class);
+//        Intent y2 = new Intent(getApplicationContext(),HomePage.class);
 //        y2.putExtra("date",dateValue);
+    }
+
+    public void addchildBack(View v){
+        Intent ne= new Intent(this,HomePage.class);
+        startActivity(ne);
     }
 }
