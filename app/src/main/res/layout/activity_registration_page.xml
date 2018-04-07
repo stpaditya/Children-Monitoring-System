@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.s528747.childrenmonitoringsystem.Main3Activity">
+    tools:context="com.example.s528747.childrenmonitoringsystem.RegistrationPage">
+
     <Button
         android:id="@+id/button7"
-        android:layout_width="153dp"
-        android:layout_height="38dp"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:onClick="back"
-        android:text="Alredy a user"
+        android:text="Already Registered?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -22,30 +24,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.923" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="379dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:textSize="@dimen/fab_margin"
-        android:textStyle="italic"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Child Monitering"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <EditText
         android:id="@+id/username"
-        android:layout_width="357dp"
-        android:layout_height="63dp"
+        android:layout_width="346dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -55,12 +37,11 @@
         android:hint="User Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236"
-        tools:layout_editor_absoluteX="11dp" />
+        app:layout_constraintVertical_bias="0.079" />
 
     <EditText
         android:id="@+id/password"
@@ -143,18 +124,28 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="185dp"
-        android:layout_height="39dp"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:onClick="back"
-        android:text="Creat Account"
+        android:text="Create Account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintVertical_bias="0.923" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 </android.support.constraint.ConstraintLayout>

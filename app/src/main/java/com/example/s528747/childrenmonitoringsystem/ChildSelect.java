@@ -21,8 +21,8 @@ public class ChildSelect extends AppCompatActivity {
         ed1.setText(child);
     }
 
-    public void childPageBack(View v){
-        Intent ne= new Intent(this,HomePage.class);
+    public void childLocation(View v){
+        Intent ne= new Intent(this,ChildLocation.class);
         startActivity(ne);
     }
 }

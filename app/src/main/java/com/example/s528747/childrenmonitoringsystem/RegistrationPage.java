@@ -15,12 +15,12 @@ import com.backendless.exceptions.BackendlessFault;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Main3Activity extends AppCompatActivity {
+public class RegistrationPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_registration_page);
     }
     public void back(View V){
         EditText ed=(EditText) findViewById(R.id.username);

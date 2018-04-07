@@ -90,7 +90,7 @@ public class LoginPage extends AppCompatActivity {
     }
     public void signup(View V){
 
-        Intent in = new Intent(this,Main3Activity.class);
+        Intent in = new Intent(this,RegistrationPage.class);
         startActivity(in);
     }
 

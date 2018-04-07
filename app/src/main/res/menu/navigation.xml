@@ -11,14 +11,13 @@
         android:id="@+id/navigation_child"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Child"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="Settings"
-        android:enabled="true"
         app:showAsAction="ifRoom" />
+
 
 </menu>
