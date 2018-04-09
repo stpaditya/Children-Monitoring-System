@@ -22,7 +22,7 @@ public class RegistrationPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_page);
     }
-    public void back(View V){
+    public void register(View V){
         EditText ed=(EditText) findViewById(R.id.username);
         EditText ed1=(EditText) findViewById(R.id.password);
         EditText ed3=(EditText) findViewById(R.id.repassword);
@@ -89,11 +89,12 @@ public class RegistrationPage extends AppCompatActivity {
             else {
                 Toast.makeText(getApplicationContext(),"Enter Valid Email-Id",Toast.LENGTH_SHORT).show();
             }
-
-
         }
+    }
 
-
+    public void cancelRegister(View V){
+        Intent in = new Intent(this,LoginPage.class);
+        startActivity(in);
     }
 
 

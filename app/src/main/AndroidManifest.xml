@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.s528747.childrenmonitoringsystem">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,22 +21,43 @@
         </activity>
         <activity android:name=".HomePage" />
         <activity android:name=".RegistrationPage" />
-        <activity android:name=".ChildLocation" />
-        <activity android:name=".Addchild"
-                android:parentActivityName=".HomePage">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomePage" />
-        </activity>
-        <activity android:name=".ChildSelect"
+        <activity
+            android:name=".Addchild"
             android:parentActivityName=".HomePage">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomePage" />
         </activity>
-        <activity android:name=".Settings"></activity>
+        <activity
+            android:name=".ChildSelect"
+            android:parentActivityName=".HomePage">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomePage" />
+        </activity>
+        <activity android:name=".Settings" />
+        <activity
+            android:name=".ChildLocation"
+            android:parentActivityName=".ChildSelect">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChildSelect" />
+        </activity>
+        <activity
+            android:name=".SeeHistory"
+            android:parentActivityName=".ChildSelect">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChildSelect" />
+        </activity>
     </application>
 
 </manifest>

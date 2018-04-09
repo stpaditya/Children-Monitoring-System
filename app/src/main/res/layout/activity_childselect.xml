@@ -29,19 +29,17 @@
         android:layout_width="169dp"
         android:layout_height="29dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.259" />
 
     <TextView
         android:id="@+id/location"
@@ -52,9 +50,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Location"
         android:onClick="childLocation"
-        android:textColor="@color/colorPrimaryDark"
+        android:text="Location"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -71,8 +69,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
+        android:onClick="seeHistory"
         android:text="See History"
-        android:textColor="@color/colorPrimaryDark"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -89,11 +88,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintHorizontal_bias="0.771"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintVertical_bias="0.236"
+        app:srcCompat="@drawable/ic_user_settings" />
 
 </android.support.constraint.ConstraintLayout>

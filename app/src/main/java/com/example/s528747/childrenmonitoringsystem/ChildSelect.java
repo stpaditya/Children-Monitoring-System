@@ -25,4 +25,9 @@ public class ChildSelect extends AppCompatActivity {
         Intent ne= new Intent(this,ChildLocation.class);
         startActivity(ne);
     }
+
+    public void seeHistory(View v){
+        Intent ne= new Intent(this,SeeHistory.class);
+        startActivity(ne);
+    }
 }
