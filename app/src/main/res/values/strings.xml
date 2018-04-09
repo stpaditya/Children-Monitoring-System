@@ -3,4 +3,6 @@
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_main22">Main22Activity</string>
     <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_add">Add</string>
 </resources>

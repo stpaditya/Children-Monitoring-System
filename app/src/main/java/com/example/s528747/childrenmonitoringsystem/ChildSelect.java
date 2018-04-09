@@ -22,7 +22,7 @@ public class ChildSelect extends AppCompatActivity {
     }
 
     public void childLocation(View v){
-        Intent ne= new Intent(this,ChildLocation.class);
+        Intent ne= new Intent(this,MapsActivity.class);
         startActivity(ne);
     }
 
