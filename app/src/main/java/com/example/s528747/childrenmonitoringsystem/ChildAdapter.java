@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -30,6 +31,7 @@ public class ChildAdapter extends ArrayAdapter {
 //        TextView tv3 = (TextView) v.findViewById(R.id.textView4);
         Children even = (Children) getItem(position);
         tv1.setText(even.getChildName());
+        Log.d("adapter",even.getChildName() );
 //        tv2.setText(even.getChildPhone());
 //        tv3.setText(even.getDate());
         return v;

@@ -1,5 +1,6 @@
 package com.example.s528747.childrenmonitoringsystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,10 +14,14 @@ import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Add extends AppCompatActivity {
     private EditText childname;
     //private EditText childEmail;
     private EditText childID;
+    HashMap AddChild = new HashMap();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,27 +40,28 @@ public class Add extends AppCompatActivity {
         String temp = childname.getText().toString();
         //String temp2 = childEmail.getText().toString();
         String temp3 = childID.getText().toString();
-
-
-        AddChild ad= new AddChild();
-        ad.setChildID(temp3);
-        ad.setChildName(temp);
-        Log.d("stringname",ad.getChildName());
-        Backendless.Persistence.save(ad, new AsyncCallback<Object>() {
-
-            @Override
-            public void handleResponse(Object response) {
-
-System.out.print(response);
+        System.out.println();
+        AddChild.put("email","stp.aditya@gmail.com");
+        AddChild.put("childID",temp3);
+        AddChild.put("childName",temp);
+        Backendless.Persistence.of( "AddChild" ).save( AddChild, new AsyncCallback<Map>() {
+            public void handleResponse( Map response )
+            {
+                Log.d("success",response.toString());
+                // new Contact instance has been saved
             }
 
-            @Override
-            public void handleFault(BackendlessFault fault) {
-                System.out.print(fault);
+            public void handleFault( BackendlessFault fault )
+            {
+                System.out.println(fault);
+                Log.d("Failure",fault.toString());
+                // an error has occurred, the error code can be retrieved with fault.getCode()
             }
-
-
         });
+
+        Intent one = new Intent(this, HomePage.class);
+        startActivity(one);
+
 
     }
 
