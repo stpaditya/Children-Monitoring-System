@@ -97,7 +97,7 @@ call();
         });
 
 //
-        TextView tv = (TextView) findViewById(R.id.textView3);
+        TextView tv = findViewById(R.id.textView3);
         //tv.setText("Welcome, Aditya");
 
         Intent in = getIntent();

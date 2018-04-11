@@ -12,8 +12,8 @@ public class ChildSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_childselect);
-        TextView ed=(TextView) findViewById(R.id.user);
-        TextView ed1=(TextView) findViewById(R.id.child);
+        TextView ed= findViewById(R.id.user);
+        TextView ed1= findViewById(R.id.child);
         Intent in=getIntent();
         String user=in.getStringExtra("username");
         String child=in.getStringExtra("child");

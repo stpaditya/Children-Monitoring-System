@@ -23,11 +23,11 @@ public class RegistrationPage extends AppCompatActivity {
         setContentView(R.layout.activity_registration_page);
     }
     public void register(View V){
-        EditText ed=(EditText) findViewById(R.id.username);
-        EditText ed1=(EditText) findViewById(R.id.password);
-        EditText ed3=(EditText) findViewById(R.id.repassword);
-        EditText ed4=(EditText) findViewById(R.id.phonenumber);
-        EditText ed5=(EditText) findViewById(R.id.Emailid);
+        EditText ed= findViewById(R.id.username);
+        EditText ed1= findViewById(R.id.password);
+        EditText ed3= findViewById(R.id.repassword);
+        EditText ed4= findViewById(R.id.phonenumber);
+        EditText ed5= findViewById(R.id.Emailid);
 
         String username= ed.getText().toString();
         String password= ed1.getText().toString();

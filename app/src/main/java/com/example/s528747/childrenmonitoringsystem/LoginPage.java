@@ -28,8 +28,8 @@ public class LoginPage extends AppCompatActivity {
 
     public void login(View v){
 
-        EditText et=(EditText) findViewById(R.id.editText);
-        EditText et1=(EditText)  findViewById(R.id.editText2);
+        EditText et= findViewById(R.id.editText);
+        EditText et1= findViewById(R.id.editText2);
         String str=et.getText().toString();
         String str1=et1.getText().toString();
 
@@ -54,7 +54,7 @@ public class LoginPage extends AppCompatActivity {
 
                 @Override
                 public void handleFault(BackendlessFault fault) {
-                    System.out.println(fault);;
+                    System.out.println(fault);
 
                 }
             });
@@ -62,7 +62,7 @@ public class LoginPage extends AppCompatActivity {
         }
     }
     public void forgotpassword(View v){
-        EditText et=(EditText) findViewById(R.id.editText);
+        EditText et= findViewById(R.id.editText);
         String str=et.getText().toString();
         if(str.length()<=0)
         {
