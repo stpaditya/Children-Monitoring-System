@@ -9,5 +9,6 @@
     <string name="menu_user">User Profile</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_aboutUs">About us</string>
+    <string name="title_activity_listview">listview</string>
 </resources>
 

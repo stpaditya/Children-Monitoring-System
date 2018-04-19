@@ -87,7 +87,7 @@
         <!-- android:label="@string/title_activity_add" -->
         <activity android:name=".UserProfile" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".AlertSettings"></activity>
+        <activity android:name=".AlertSettings" />
     </application>
 
 </manifest>
