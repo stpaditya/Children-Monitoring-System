@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context="com.example.s528747.childrenmonitoringsystem.HomePage">
 
     <TextView
@@ -47,7 +46,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
         android:textColor="#6C3483"
         android:gravity="center"
         android:text="Select a child"
@@ -66,8 +64,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="-201dp"
         android:layout_marginTop="8dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.403"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -114,10 +110,53 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_gravity="start"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation">
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Small">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/child"
+                android:text="Child" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/alert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/ic_notifications_black_24dp"
+                android:text="Alerts" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/user"
+                android:text="Profile" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/settings"
+                android:text="Settings" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/about_us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/about_us"
+                android:text="About us" />
+        </android.support.design.widget.TabLayout>
+    </android.support.design.widget.BottomNavigationView>
 </android.support.constraint.ConstraintLayout>

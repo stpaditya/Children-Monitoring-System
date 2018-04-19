@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context="com.example.s528747.childrenmonitoringsystem.LoginPage">
 
     <!--<TextView-->
@@ -40,14 +39,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:textColor="#9B59B6"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:focusable="true"
         android:hint="Enter Username"
         android:text="stp.aditya@gmail.com"
-        android:textColorHighlight="#ff7eff15"
-        android:textColorHint="#ffff25e6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -55,12 +49,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.192" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_below="@+id/textView"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
     <EditText
         android:id="@+id/editText2"
@@ -75,14 +69,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:textColor="#9B59B6"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:text="password-1"
-        android:textColorHint="#ffff299f"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -100,8 +90,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#6C3483"
         android:layout_toLeftOf="@+id/textview"
         android:layout_toStartOf="@+id/textview"
         android:onClick="login"
@@ -124,8 +112,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#6C3483"
         android:layout_toEndOf="@+id/textview"
         android:layout_toRightOf="@+id/textview"
         android:onClick="forgotpassword"
@@ -148,8 +134,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="20dp"
-        android:textColor="#6C3483"
         android:onClick="signup"
         android:text="Register"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"

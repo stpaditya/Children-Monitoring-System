@@ -39,7 +39,69 @@ public class HomePage extends AppCompatActivity {
     //    private CalendarView dob;
     private String id, name, email;
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.child:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
 
+            case R.id.alert:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case R.id.profile:
+                intent = new Intent(getApplicationContext(), UserProfile.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.settings:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            case R.id.about_us:
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+//    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            Intent intent;
+//            switch (item.getItemId()) {
+//                case R.id.navigation_user_profile:
+//                    intent = new Intent(getApplicationContext(), UserProfile.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.navigation_child:
+//                    intent = new Intent(getApplicationContext(), HomePage.class);
+//                    startActivity(intent);
+//                    break;
+//                case R.id.navigation_settings:
+//                    intent = new Intent(getApplicationContext(), Settings.class);
+//                    startActivity(intent);
+//                    break;
+////                case R.id.navigation_about_us:
+////                    intent = new Intent(getApplicationContext(), AboutUs.class);
+////                    startActivity(intent);
+////                    break;
+//            }
+//            return true;
+//        }
+//    };
 
 
     @Override
@@ -47,13 +109,13 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-
-
         BottomNavigationView navigation = findViewById(R.id.navigation);
+      //  navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         String userId = UserIdStorageFactory.instance().getStorage().get();
-String userID= Backendless.UserService.loggedInUser();
+        String userID= Backendless.UserService.loggedInUser();
         String currentUserObjectId = UserIdStorageFactory.instance().getStorage().get();
-String where = "email='stp.aditya@gmail.com'";
+        String where = "email='stp.aditya@gmail.com'";
         Log.d("xx",currentUserObjectId);        DataQueryBuilder query= DataQueryBuilder.create();
         query.setWhereClause(where);
 
@@ -64,7 +126,7 @@ String where = "email='stp.aditya@gmail.com'";
                 {
                     listOfChildren.add(new Children(response.get(i).getChildName(),null,response.get(i).getChildID() ));
                     Log.d("for",listOfChildren.get(i).getChildName());
-call();
+                    call();
                 }
             }
 
@@ -111,7 +173,7 @@ call();
         childDetails.put("childID",id);
         System.out.println("Child Details anta " + childDetails);
 
-       // listOfChildren.add(new Children(name, email, id));
+        // listOfChildren.add(new Children(name, email, id));
 
 
 
@@ -119,8 +181,6 @@ call();
 
 
     public void call(){
-
-
         ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
         final ListView list =  findViewById(R.id.listView);
         list.setAdapter(ad);
@@ -128,7 +188,7 @@ call();
     }
 
     public void add(View v){
-  Intent ne= new Intent(this,Add.class);
+        Intent ne= new Intent(this,Add.class);
         startActivity(ne);
     }
 
@@ -137,11 +197,5 @@ call();
 
         startActivity(ne);
     }
-
-
-
-
-
-
 
 }

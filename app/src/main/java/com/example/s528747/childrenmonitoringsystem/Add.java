@@ -2,8 +2,6 @@ package com.example.s528747.childrenmonitoringsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -35,7 +33,7 @@ public class Add extends AppCompatActivity {
     {
         childname =  findViewById(R.id.child_name);
 
-        childID =  findViewById(R.id.child_id);
+        childID =  findViewById(R.id.time_interval);
 
         String temp = childname.getText().toString();
         //String temp2 = childEmail.getText().toString();
@@ -63,6 +61,11 @@ public class Add extends AppCompatActivity {
         startActivity(one);
 
 
+    }
+
+    public void addChild_cancel(View v){
+        Intent ne= new Intent(this,HomePage.class);
+        startActivity(ne);
     }
 
 }

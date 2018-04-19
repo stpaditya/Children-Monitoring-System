@@ -2,22 +2,37 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--&lt;!&ndash;<item&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/navigation_home"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:icon="@drawable/ic_home_black_24dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:title="Home" />&ndash;&gt;-->
+
     <!--<item-->
-        <!--android:id="@+id/navigation_home"-->
-        <!--android:icon="@drawable/ic_home_black_24dp"-->
-        <!--android:title="Home" />-->
+        <!--android:id="@+id/navigation_child"-->
+        <!--android:icon="@drawable/child"-->
+        <!--android:title="Child"-->
+        <!--android:checkable="true"-->
+        <!--app:showAsAction="always|withText" />-->
 
-    <item
-        android:id="@+id/navigation_child"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Child"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_user_profile"-->
+        <!--android:icon="@drawable/user"-->
+        <!--android:title="User Profile"-->
+        <!--android:checkable="true"-->
+        <!--app:showAsAction="always|withText" />-->
 
-    <item
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="Settings"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_settings"-->
+        <!--android:icon="@drawable/settings"-->
+        <!--android:title="Settings"-->
+        <!--android:checkable="true"-->
+        <!--app:showAsAction="always|withText" />-->
+
+    <!--&lt;!&ndash;<item&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/navigation_about_us"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:icon="@drawable/about_us"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:title="About us"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:showAsAction="ifRoom" />&ndash;&gt;-->
 
 
 </menu>
