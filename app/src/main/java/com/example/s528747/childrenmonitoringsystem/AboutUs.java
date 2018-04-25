@@ -9,34 +9,37 @@ import android.view.MenuItem;
 
 public class AboutUs extends AppCompatActivity {
 
-//    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-//        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//            Intent intent;
-//            switch (item.getItemId()) {
-//                case R.id.navigation_user_profile:
-//                    intent = new Intent(getApplicationContext(), UserProfile.class);
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent intent;
+            switch (item.getItemId()) {
+                case R.id.navigation_child:
+                    intent = new Intent(getApplicationContext(), HomePage.class);
+                    startActivity(intent);
+                    break;
+//                case R.id.navigation_alert_settings:
+//                    intent = new Intent(getApplicationContext(), AlertSettings.class);
 //                    startActivity(intent);
 //                    break;
-//                case R.id.navigation_child:
-//                    intent = new Intent(getApplicationContext(), HomePage.class);
-//                    startActivity(intent);
-//                    break;
-//                case R.id.navigation_settings:
-//                    intent = new Intent(getApplicationContext(), Settings.class);
-//                    startActivity(intent);
-//                    break;
-////                case R.id.navigation_about_us:
-////                    intent = new Intent(getApplicationContext(), AboutUs.class);
-////                    startActivity(intent);
-////                    break;
-//            }
-//            return true;
-//        }
-//    };
-
+                case R.id.navigation_user_profile:
+                    intent = new Intent(getApplicationContext(), UserProfile.class);
+                    startActivity(intent);
+                    break;
+                case R.id.navigation_settings:
+                    intent = new Intent(getApplicationContext(), Settings.class);
+                    startActivity(intent);
+                    break;
+                case R.id.navigation_about_us:
+                    intent = new Intent(getApplicationContext(), AboutUs.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,6 @@ public class AboutUs extends AppCompatActivity {
         setContentView(R.layout.activity_about_us);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
-    //    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 }

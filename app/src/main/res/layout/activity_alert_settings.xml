@@ -26,13 +26,12 @@
         android:id="@+id/textView12"
         android:layout_width="134dp"
         android:layout_height="41dp"
-        android:layout_marginStart="16dp"
         android:text="Time interval"
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/time_interval"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/time_interval"
@@ -113,6 +112,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
+        android:onClick="sendNotification"
         android:text="Set Alert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

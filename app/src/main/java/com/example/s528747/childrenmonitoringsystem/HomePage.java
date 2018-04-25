@@ -4,6 +4,8 @@ package com.example.s528747.childrenmonitoringsystem;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -35,73 +38,84 @@ public class HomePage extends AppCompatActivity {
     ArrayList<Children> listOfChildren = new ArrayList<>();
     public HashMap childDetails = new HashMap<>();
     private EditText childName, childPhone;
-
-    //    private CalendarView dob;
     private String id, name, email;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.child:
-                // User chose the "Settings" item, show the app settings UI...
-                return true;
-
-            case R.id.alert:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                return true;
-
-            case R.id.profile:
-                intent = new Intent(getApplicationContext(), UserProfile.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.settings:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                return true;
-
-            case R.id.about_us:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
-
-//    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//    private ViewPager mViewPager;
+//    private TabLayout mTabLayout;
 //
+//    public TabLayout.OnTabSelectedListener mOnTabItemSelectedListener
+//            = new TabLayout.OnTabSelectedListener() {
 //        @Override
-//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        public boolean onOptionsItemSelected(MenuItem item) {
 //            Intent intent;
 //            switch (item.getItemId()) {
-//                case R.id.navigation_user_profile:
-//                    intent = new Intent(getApplicationContext(), UserProfile.class);
-//                    startActivity(intent);
-//                    break;
-//                case R.id.navigation_child:
+//                case R.id.child:
 //                    intent = new Intent(getApplicationContext(), HomePage.class);
 //                    startActivity(intent);
-//                    break;
-//                case R.id.navigation_settings:
-//                    intent = new Intent(getApplicationContext(), Settings.class);
+//                    // User chose the "Settings" item, show the app settings UI...
+//                    return true;
+//
+//                case R.id.alert:
+//                    // User chose the "Favorite" action, mark the current item
+//                    // as a favorite...
+//                    return true;
+//
+//                case R.id.profile:
+//                    intent = new Intent(getApplicationContext(), UserProfile.class);
 //                    startActivity(intent);
-//                    break;
-////                case R.id.navigation_about_us:
-////                    intent = new Intent(getApplicationContext(), AboutUs.class);
-////                    startActivity(intent);
-////                    break;
+//                    return true;
+//
+//                case R.id.settings:
+//                    // User chose the "Favorite" action, mark the current item
+//                    // as a favorite...
+//                    return true;
+//
+//                case R.id.about_us:
+//                    // User chose the "Favorite" action, mark the current item
+//                    // as a favorite...
+//                    return true;
+//
+//                default:
+//                    // If we got here, the user's action was not recognized.
+//                    // Invoke the superclass to handle it.
+//                    return true;
+//                    //return super.onOptionsItemSelected(item);
+//
 //            }
-//            return true;
 //        }
 //    };
+
+    public BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent intent;
+            switch (item.getItemId()) {
+                case R.id.navigation_child:
+                    intent = new Intent(getApplicationContext(), HomePage.class);
+                    startActivity(intent);
+                    return true;
+//                case R.id.navigation_alert_settings:
+//                    intent = new Intent(getApplicationContext(), AlertSettings.class);
+//                    startActivity(intent);
+//                    break;
+                case R.id.navigation_user_profile:
+                    intent = new Intent(getApplicationContext(), UserProfile.class);
+                    startActivity(intent);
+                    break;
+                case R.id.navigation_settings:
+                    intent = new Intent(getApplicationContext(), Settings.class);
+                    startActivity(intent);
+                    break;
+                case R.id.navigation_about_us:
+                    intent = new Intent(getApplicationContext(), AboutUs.class);
+                    startActivity(intent);
+                    break;
+            }
+            return true;
+        }
+    };
 
 
     @Override
@@ -110,7 +124,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
-      //  navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         String userId = UserIdStorageFactory.instance().getStorage().get();
         String userID= Backendless.UserService.loggedInUser();
@@ -130,14 +144,11 @@ public class HomePage extends AppCompatActivity {
                 }
             }
 
-
             @Override
             public void handleFault(BackendlessFault fault) {
                 System.out.println(fault);
             }
         });
-
-
 
 
         ad = new ChildAdapter(this, R.layout.listview, R.id.textView6, listOfChildren);
@@ -158,25 +169,18 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-//
+
         TextView tv = findViewById(R.id.textView3);
-        //tv.setText("Welcome, Aditya");
 
         Intent in = getIntent();
         name = in.getStringExtra("name");
         email = in.getStringExtra("email");
         id = in.getStringExtra("id");
 
-
         childDetails.put("childName", name);
         childDetails.put("emailID", email);
         childDetails.put("childID",id);
         System.out.println("Child Details anta " + childDetails);
-
-        // listOfChildren.add(new Children(name, email, id));
-
-
-
     }
 
 
@@ -189,6 +193,11 @@ public class HomePage extends AppCompatActivity {
 
     public void add(View v){
         Intent ne= new Intent(this,Add.class);
+        startActivity(ne);
+    }
+
+    public void alert(View v) {
+        Intent ne = new Intent(this, AlertSettings.class);
         startActivity(ne);
     }
 

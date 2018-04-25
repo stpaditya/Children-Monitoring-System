@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.298" />
 
     <EditText
-        android:id="@+id/time_interval"
+        android:id="@+id/child_id"
         android:layout_width="255dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
@@ -96,7 +96,7 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/time_interval"
+        app:layout_constraintBaseline_toBaselineOf="@+id/child_id"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

@@ -33,7 +33,7 @@ public class Add extends AppCompatActivity {
     {
         childname =  findViewById(R.id.child_name);
 
-        childID =  findViewById(R.id.time_interval);
+        childID =  findViewById(R.id.child_id);
 
         String temp = childname.getText().toString();
         //String temp2 = childEmail.getText().toString();
